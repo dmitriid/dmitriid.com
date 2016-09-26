@@ -1,0 +1,19 @@
+$freja-link-types: (
+  "http": "link-intact-sm.svg",
+  "https://m.facebook": "social-facebook-sm.svg",
+  "https://facebook": "social-facebook-sm.svg",
+  "https://plus.google": "social-google-plus-sm.svg",
+  "https://twitter": "social-twitter-sm.svg",
+  "https://github": "social-github-sm.svg",
+  "https://instagram": "social-instagram-sm.svg",
+  "https://youtu": "social-youtube-sm.svg",
+  "https://vimeo": "social-vimeo-sm.svg"
+);
+
+
+@each $type, $file in $freja-link-types {
+  a[href^="#{$type}"] {
+    padding-left: 20px;
+    background: url('../img/icons/#{$file}') no-repeat center left;
+  }
+}

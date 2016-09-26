@@ -1,0 +1,12 @@
+name = "Freja"
+license = "MIT"
+licenselink = "https://github.com/dmitriid/hugo_theme_freja/blob/master/LICENSE.md"
+description = "Freja is blog theme for hugo."
+tags = ["blog"]
+features = ["blog"]
+min_version = 0.15
+
+[author]
+    name = "Dmitrii 'Mamut' Dimandt"
+    homepage = "http://dmitriid.com/"
+

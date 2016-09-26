@@ -1,0 +1,660 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Ampersand";
+  src: local("Georgia"), local("Garamond"), local("Palatino"), local("Book Antiqua");
+  unicode-range: U+0026; }
+@font-face {
+  font-family: "Ampersand";
+  src: local("Georgia");
+  unicode-range: U+270C; }
+.typl8-tera, .typl8-giga, .typl8-mega, .typl8-alpha, .typl8-beta, .typl8-gamma, .typl8-delta, h1, .typl8-epsilon, h2, .typl8-zeta, h3, h4, h5, h6, article header.header-levelh1 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222; }
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right; }
+
+body {
+  word-wrap: break-word; }
+
+pre code {
+  word-wrap: normal; }
+
+html {
+  font: normal 112.5%/1.65 "merriweather", serif; }
+
+body {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444; }
+
+.typl8-tera {
+  font-size: 6.5em;
+  margin-bottom: 3.93939rem; }
+
+.typl8-giga {
+  font-size: 5em;
+  margin-bottom: 3.0303rem; }
+
+.typl8-mega {
+  font-size: 4em;
+  margin-bottom: 2.42424rem; }
+
+.typl8-alpha {
+  font-size: 3.33333em;
+  margin-bottom: 2.0202rem; }
+
+.typl8-beta {
+  font-size: 2.66667em;
+  margin-bottom: 1.61616rem; }
+
+.typl8-gamma {
+  font-size: 2em;
+  margin-bottom: 1.21212rem; }
+
+.typl8-delta, h1 {
+  font-size: 1.33333em;
+  margin-bottom: 0.80808rem; }
+
+.typl8-epsilon, h2 {
+  font-size: 1.16667em;
+  margin-bottom: 0.70707rem; }
+
+.typl8-zeta, h3, h4, h5, h6 {
+  font-size: 1em;
+  margin-bottom: 0.60606rem; }
+
+p {
+  margin: auto auto 1.5rem; }
+  p + p {
+    text-indent: 1.5rem;
+    margin-top: -1.5rem; }
+
+small {
+  font-size: 65%; }
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+pre {
+  white-space: pre; }
+  pre code {
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap; }
+
+code {
+  white-space: pre;
+  font-family: monospace; }
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray; }
+  abbr[title]:hover {
+    cursor: help; }
+
+.typl8-drop-cap:first-letter {
+  float: left;
+  margin: 10px 10px 0 0;
+  padding: 0 20px;
+  font-size: 4em;
+  font-family: inherit;
+  line-height: 1;
+  text-indent: 0;
+  background: transparent;
+  color: inherit; }
+
+p + .typl8-drop-cap {
+  text-indent: 0;
+  margin-top: 0; }
+
+/**
+ * Lining Definition Style Markup
+ *
+  <dl class="typl8-lining">
+    <dt><b></b></dt>
+    <dd></dd>
+  </dl>
+ *
+ * Extend this object into your markup.
+ *
+ */
+.typl8-lining dt,
+.typl8-lining dd {
+  display: inline;
+  margin: 0; }
+.typl8-lining dt + dt:before,
+.typl8-lining dd + dt:before {
+  content: "\A";
+  white-space: pre; }
+.typl8-lining dd + dd:before {
+  content: ", "; }
+.typl8-lining dd:before {
+  content: ": ";
+  margin-left: -0.2rem; }
+
+/**
+ * Dictionary Definition Style Markup
+ *
+  <dl class="typl8-dictionary-style">
+    <dt><b></b></dt>
+    <dd></dd>
+  </dl>
+ *
+ * Extend this object into your markup.
+ *
+ */
+.typl8-dictionary-style dt {
+  display: inline;
+  counter-reset: definitions; }
+  .typl8-dictionary-style dt + dt:before {
+    content: ", ";
+    margin-left: -0.2rem; }
+.typl8-dictionary-style dd {
+  display: block;
+  counter-increment: definitions; }
+  .typl8-dictionary-style dd:before {
+    content: counter(definitions,decimal) ". "; }
+
+/**
+ * Blockquote Markup
+ *
+    <figure>
+      <blockquote cite="">
+        <p></p>
+      </blockquote>
+      <figcaption>
+        <cite>
+          <small><a href=""></a></small>
+        </cite>
+      </figcaption>
+    </figure>
+ *
+ * Extend this object into your markup.
+ *
+ */
+/**
+ * Pull Quotes Markup
+ *
+  <aside class="typl8-pull-quote">
+    <blockquote>
+      <p></p>
+    </blockquote>
+  </aside>
+ *
+ * Extend this object into your custom stylesheet.
+ *
+ */
+.typl8-pull-quote {
+  position: relative;
+  padding: 1em; }
+  .typl8-pull-quote:before, .typl8-pull-quote:after {
+    height: 1em;
+    opacity: 0.5;
+    position: absolute;
+    font-size: 4em;
+    color: #dc976e; }
+  .typl8-pull-quote:before {
+    content: '“';
+    top: 0;
+    left: 0; }
+  .typl8-pull-quote:after {
+    content: '”';
+    bottom: 0;
+    right: 0; }
+
+/**
+ * Figures Markup
+ *
+  <figure>
+    <figcaption>
+      <strong>Fig. X.X | </strong><cite title=""></cite>
+    </figcaption>
+  </figure>
+ *
+ * Extend this object into your markup.
+ *
+ */
+/**
+ * Footnote Markup : Replace 'X' with your unique number for each footnote
+ *
+  <article>
+    <p><sup><a href="#fn-itemX" id="fn-returnX"></a></sup></p>
+    <footer>
+      <ol class="foot-notes">
+        <li id="fn-itemX"><a href="#fn-returnX">↩</a></li>
+      </ol>
+    </footer>
+  </article>
+ *
+ * Extend this object into your markup.
+ *
+ */
+article > *, article > blockquote p, pre code, #TableOfContents:before, #TableOfContents ul, #disqus_thread {
+  margin-left: 20%;
+  margin-right: 20%; }
+  @media screen and (max-width: 768px) {
+    article > *, article > blockquote p, pre code, #TableOfContents:before, #TableOfContents ul, #disqus_thread {
+      margin-left: 5%;
+      margin-right: 5%; } }
+
+article header + p:first-letter, article blockquote > p:first-of-type:first-letter, article h1 + p:first-letter, article h2 + p:first-letter, article h3 + p:first-letter, article h4 + p:first-letter, article h5 + p:first-letter, article h6 + p:first-letter {
+  float: left;
+  margin: 0;
+  padding: 0.15em 0 0 0;
+  font-size: 1.5em;
+  font-family: inherit;
+  line-height: 0.7;
+  text-indent: 0;
+  background: transparent;
+  color: inherit; }
+
+figure.quote, article > blockquote, pre, #TableOfContents {
+  background-color: #f1edea;
+  margin: 0;
+  margin-bottom: 1em;
+  padding: 36px 0 36px 0; }
+  figure.quote p:last-child, article > blockquote p:last-child, pre p:last-child, #TableOfContents p:last-child {
+    margin-bottom: 0; }
+
+section.main-nav nav ul li a {
+  transition: border-color .5s ease-in-out;
+  border-bottom: 1px solid transparent; }
+  section.main-nav nav ul li a:hover {
+    border-bottom-color: #444; }
+
+.highlight code, .highlight pre {
+  color: #fdce93;
+  background-color: #3f3f3f; }
+
+.highlight .hll {
+  background-color: #222; }
+
+.highlight .c {
+  color: #7f9f7f; }
+
+.highlight .err {
+  color: #e37170;
+  background-color: #3d3535; }
+
+.highlight .g {
+  color: #7f9f7f; }
+
+.highlight .k {
+  color: #f0dfaf; }
+
+.highlight .l {
+  color: #ccc; }
+
+.highlight .n {
+  color: #dcdccc; }
+
+.highlight .o {
+  color: #f0efd0; }
+
+.highlight .x {
+  color: #ccc; }
+
+.highlight .p {
+  color: #41706f; }
+
+.highlight .cm {
+  color: #7f9f7f; }
+
+.highlight .cp {
+  color: #7f9f7f; }
+
+.highlight .c1 {
+  color: #7f9f7f; }
+
+.highlight .cs {
+  color: #cd0000;
+  font-weight: bold; }
+
+.highlight .gd {
+  color: #cd0000; }
+
+.highlight .ge {
+  color: #ccc;
+  font-style: italic; }
+
+.highlight .gr {
+  color: red; }
+
+.highlight .gh {
+  color: #dcdccc;
+  font-weight: bold; }
+
+.highlight .gi {
+  color: #00cd00; }
+
+.highlight .go {
+  color: gray; }
+
+.highlight .gp {
+  color: #dcdccc;
+  font-weight: bold; }
+
+.highlight .gs {
+  color: #ccc;
+  font-weight: bold; }
+
+.highlight .gu {
+  color: purple;
+  font-weight: bold; }
+
+.highlight .gt {
+  color: #0040D0; }
+
+.highlight .kc {
+  color: #dca3a3; }
+
+.highlight .kd {
+  color: #ffff86; }
+
+.highlight .kn {
+  color: #dfaf8f;
+  font-weight: bold; }
+
+.highlight .kp {
+  color: #cdcf99; }
+
+.highlight .kr {
+  color: #cdcd00; }
+
+.highlight .kt {
+  color: #00cd00; }
+
+.highlight .ld {
+  color: #cc9393; }
+
+.highlight .m {
+  color: #8cd0d3; }
+
+.highlight .s {
+  color: #cc9393; }
+
+.highlight .na {
+  color: #9ac39f; }
+
+.highlight .nb {
+  color: #efef8f; }
+
+.highlight .nc {
+  color: #efef8f; }
+
+.highlight .no {
+  color: #ccc; }
+
+.highlight .nd {
+  color: #ccc; }
+
+.highlight .ni {
+  color: #c28182; }
+
+.highlight .ne {
+  color: #c3bf9f;
+  font-weight: bold; }
+
+.highlight .nf {
+  color: #efef8f; }
+
+.highlight .nl {
+  color: #ccc; }
+
+.highlight .nn {
+  color: #8fbede; }
+
+.highlight .nx {
+  color: #ccc; }
+
+.highlight .py {
+  color: #ccc; }
+
+.highlight .nt {
+  color: #9ac39f; }
+
+.highlight .nv {
+  color: #dcdccc; }
+
+.highlight .ow {
+  color: #f0efd0; }
+
+.highlight .w {
+  color: #ccc; }
+
+.highlight .mf {
+  color: #8cd0d3; }
+
+.highlight .mh {
+  color: #8cd0d3; }
+
+.highlight .mi {
+  color: #8cd0d3; }
+
+.highlight .mo {
+  color: #8cd0d3; }
+
+.highlight .sb {
+  color: #cc9393; }
+
+.highlight .sc {
+  color: #cc9393; }
+
+.highlight .sd {
+  color: #cc9393; }
+
+.highlight .s2 {
+  color: #cc9393; }
+
+.highlight .se {
+  color: #cc9393; }
+
+.highlight .sh {
+  color: #cc9393; }
+
+.highlight .si {
+  color: #cc9393; }
+
+.highlight .sx {
+  color: #cc9393; }
+
+.highlight .sr {
+  color: #cc9393; }
+
+.highlight .s1 {
+  color: #cc9393; }
+
+.highlight .ss {
+  color: #cc9393; }
+
+.highlight .bp {
+  color: #efef8f; }
+
+.highlight .vc {
+  color: #efef8f; }
+
+.highlight .vg {
+  color: #dcdccc; }
+
+.highlight .vi {
+  color: #ffffc7; }
+
+.highlight .il {
+  color: #8cd0d3; }
+
+a[href^="http"] {
+  padding-left: 20px;
+  background: url("../img/icons/link-intact-sm.svg") no-repeat center left; }
+
+a[href^="https://m.facebook"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-facebook-sm.svg") no-repeat center left; }
+
+a[href^="https://facebook"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-facebook-sm.svg") no-repeat center left; }
+
+a[href^="https://plus.google"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-google-plus-sm.svg") no-repeat center left; }
+
+a[href^="https://twitter"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-twitter-sm.svg") no-repeat center left; }
+
+a[href^="https://github"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-github-sm.svg") no-repeat center left; }
+
+a[href^="https://instagram"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-instagram-sm.svg") no-repeat center left; }
+
+a[href^="https://youtu"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-youtube-sm.svg") no-repeat center left; }
+
+a[href^="https://vimeo"] {
+  padding-left: 20px;
+  background: url("../img/icons/social-vimeo-sm.svg") no-repeat center left; }
+
+a {
+  color: #a3020e; }
+
+section.main-nav {
+  display: flex;
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color: #ebedef; }
+  @media screen and (max-width: 768px) {
+    section.main-nav {
+      padding-left: 5%;
+      padding-right: 5%; } }
+  section.main-nav figure.logo {
+    margin-left: 0; }
+    section.main-nav figure.logo img {
+      height: 5em; }
+  section.main-nav nav {
+    flex-grow: 2; }
+    section.main-nav nav ul {
+      display: flex;
+      justify-content: flex-end;
+      list-style-type: none; }
+      section.main-nav nav ul li {
+        margin-left: 4vw; }
+        section.main-nav nav ul li a {
+          color: #444;
+          text-decoration: none; }
+
+article header.header-levelh1 {
+  font-size: 2em;
+  margin-bottom: 1.21212rem;
+  margin-top: 1em; }
+  article header.header-levelh1 a {
+    text-decoration: none;
+    color: #222; }
+article p.read-more {
+  text-indent: 0; }
+
+p {
+  margin-bottom: 2em; }
+
+figure.quote {
+  display: flex;
+  flex-direction: row; }
+  figure.quote blockquote {
+    margin: 0 0 0 20%; }
+    figure.quote blockquote p {
+      margin-left: 0; }
+  figure.quote figcaption {
+    min-width: 20%;
+    margin: 0 0 0 2vw; }
+    figure.quote figcaption cite {
+      margin: 0;
+      text-align: left; }
+
+pre {
+  background-color: #3f3f3f;
+  color: #f1edea; }
+  pre code {
+    display: block; }
+    pre code p {
+      margin-left: 0; }
+
+li > p {
+  margin-left: 0;
+  margin-right: 0; }
+
+hr {
+  height: 0.5em;
+  border: none;
+  background-color: #f1edea; }
+  hr:last-child {
+    display: none; }
+
+p code {
+  padding: 0.1em 0.5em;
+  background-color: #f1edea; }
+
+article > section {
+  margin-bottom: 2em; }
+
+pre, code {
+  font-family: "Fira Code", monospace; }
+
+p ~ ul, p ~ ol {
+  margin-top: -1em; }
+
+div.highlight {
+  margin: 0; }
+
+footer {
+  display: flex;
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color: #ebedef; }
+  @media screen and (max-width: 768px) {
+    footer {
+      padding-left: 5%;
+      padding-right: 5%; } }
+  footer p {
+    margin-top: 1em;
+    margin-bottom: 1em; }
+
+span.read-count {
+  display: block; }
+
+#TableOfContents:before {
+  content: 'Table of Contents';
+  line-height: 2em; }
+#TableOfContents li ul, #TableOfContents li ol {
+  margin-left: 0; }
+
+#disqus_thread {
+  margin-top: 2em; }
+
+/*# sourceMappingURL=freja.css.map */

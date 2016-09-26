@@ -1,0 +1,37 @@
+$typl8-headings: (
+  h1: typl8-delta,
+  h2: typl8-epsilon,
+  h3: typl8-zeta,
+  h4: typl8-zeta,
+  h5: typl8-zeta,
+  h6: typl8-zeta
+);
+                    
+$typl8-custom-font: "merriweather";
+
+
+$freja-block-elements: (
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul,
+  header,
+  table,
+  section
+);
+
+//$freja-primary-background-color: rgb(233, 232, 221);
+//$freja-primary-background-color: #e7e1dd;
+$freja-primary-background-color: #f1edea;
+$freja-secondary-background-color: #3f3f3f;
+//$freja-tertiary-background-color: #E1E2E6;
+//$freja-tertiary-background-color: #e1e8ec;
+$freja-tertiary-background-color: #ebedef;
+
+//$freja-link-color: #864149;
+$freja-link-color: #a3020e;

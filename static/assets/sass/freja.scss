@@ -1,0 +1,227 @@
+@import "typeplate-sk/typeplate-vars";
+@import "freja-vars";
+@import "typeplate-sk/typeplate-fonts";
+@import "typeplate-sk/typeplate-functions";
+@import "typeplate-sk/typeplate-mixins";
+@import "typeplate-sk/typeplate-extends";
+@import "typeplate-sk/typeplate-styles";
+@import "typeplate-sk/typeplate-helpers";
+@import "freja-mixins";
+@import "freja-extends";
+@import "freja-highlight";
+@import "freja-link-decorators";
+
+a {
+  color: $freja-link-color;
+}
+
+section.main-nav {
+ 
+  display: flex;
+  align-items: center;
+
+  padding-left:  20%;
+  padding-right: 20%;
+
+  @media screen and (max-width: 768px) {
+    padding-left:  5%;
+    padding-right: 5%;
+  }
+
+  background-color: $freja-tertiary-background-color;
+  
+  figure.logo {
+    margin-left: 0;
+    img {
+      height: 5em;
+    }
+  }
+  
+  nav {
+    
+    flex-grow: 2;
+    
+    ul {
+      display:         flex;
+      justify-content: flex-end;
+
+      list-style-type: none;
+
+      li {
+        margin-left: 4vw;
+        a {
+          color:           $typl8-copy-color;
+          text-decoration: none;
+
+          @extend %freja-border-bottom-transition;
+        }
+      }
+    }
+  }
+}
+
+article {
+
+  & > * {
+    @extend %freja-center-column;
+  }
+
+  header.header-levelh1 {
+    @extend %typl8-hN;
+    @include typl8-typescale(
+                    36,
+                    $typl8-font-base,
+                    $typl8-typescale-unit,
+                    $typl8-measure
+    );
+    
+    margin-top: 1em;
+    
+    a {
+      text-decoration: none;
+      color: $typl8-heading-color;
+    }
+  }
+
+  header + p, blockquote > p:first-of-type {
+    @extend %freja-drop-cap;
+  }
+
+  @each $name, $_ in $typl8-headings {
+    #{$name} + p {
+      @extend %freja-drop-cap;
+    }
+  }
+  
+  p.read-more {
+    text-indent: 0;
+  }
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+figure.quote {
+  display:        flex;
+  flex-direction: row;
+
+  @extend %freja-page-wide-element;
+
+  blockquote {
+    margin: 0 0 0 20%;
+    p {
+      margin-left: 0;
+    }
+  }
+
+  figcaption {
+    min-width: 20%;
+    margin:    0 0 0 2vw;
+    cite {
+      margin:     0;
+      text-align: left;
+    }
+  }
+}
+
+article > blockquote {
+  @extend %freja-page-wide-element;
+  p {
+    @extend %freja-center-column
+  }
+}
+
+pre {
+  @extend %freja-page-wide-element;
+
+  background-color: $freja-secondary-background-color;
+  color:            $freja-primary-background-color;
+
+  code {
+    display: block;
+    @extend %freja-center-column;
+    p {
+      margin-left: 0;
+    }
+  }
+}
+
+li > p {
+  margin-left:  0;
+  margin-right: 0;
+}
+
+hr {
+  height:           0.5em;
+  border:           none;
+  background-color: $freja-primary-background-color;
+  
+  &:last-child {
+    display: none;
+  }
+}
+
+p code {
+  padding:          0.1em 0.5em;
+  background-color: $freja-primary-background-color;
+}
+
+article > section {
+  margin-bottom: 2em;
+}
+
+pre, code {
+  font-family: "Fira Code", monospace;
+}
+
+p ~ ul, p ~ ol {
+  margin-top: -1em;
+}
+
+div.highlight {
+  margin: 0;
+}
+
+footer {
+  display:          flex;
+  align-items:      center;
+
+  padding-left:     20%;
+  padding-right:    20%;
+
+  @media screen and (max-width: 768px) {
+    padding-left:  5%;
+    padding-right: 5%;
+  }
+
+  background-color: $freja-tertiary-background-color;
+
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+span.read-count {
+  display: block;
+}
+
+#TableOfContents {
+  @extend %freja-page-wide-element;
+  
+  &:before {
+    content: 'Table of Contents';
+    line-height: 2em;
+    @extend %freja-center-column;
+  }
+  
+  ul {
+    @extend %freja-center-column;
+  }
+
+  li ul, li ol {
+    margin-left: 0;
+  }
+
+}

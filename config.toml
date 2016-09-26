@@ -1,0 +1,15 @@
+baseurl = "http://dmitriid.com/"
+languageCode = "en-us"
+title = "A Place Where Even Mammoths Fly"
+
+ignoreFiles = ["\\.scss"]
+
+pygmentsCodeFencesGuessSyntax = false
+pygmentsStyle =              "fruity"
+pygmentsUseClasses =         true
+PygmentsCodeFences = true
+
+[Params]
+  Author = "Dmitrii Dimandt"
+  AutogenCardImage = true
+  TypeKitID = "ogl7lwm"

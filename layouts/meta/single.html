@@ -1,0 +1,19 @@
+{{ range .Site.Pages }}
+  
+  {{ if not (isset .Params "image") }}
+<div class="page">
+  <div class="id">{{ .UniqueID }}</div>
+  <div class="summary">
+    {{ if (isset .Params "summary") }}
+      {{ .Params.summary | plainify }}
+    {{ else }}
+      {{ .Summary | plainify }}
+    {{ end }}
+  </div>
+</div>
+  {{ end }}
+  
+{{ end }}
+
+
+

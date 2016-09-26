@@ -1,0 +1,43 @@
+%freja-center-column {
+  margin-left: 20%;
+  margin-right: 20%;
+  
+  @media screen and (max-width: 768px) {
+    margin-left:  5%;
+    margin-right: 5%;
+  }
+}
+
+
+%freja-drop-cap {
+  @include typl8-dropcap(
+                  $typl8-dropcap-float-position,
+                  1.5em, // font-size
+                  $typl8-dropcap-font-family,
+                  $typl8-dropcap-txt-indent,
+                  0, // margin
+                  0.15em 0 0 0, // padding
+                  $typl8-dropcap-color,
+                  0.7, // line-height
+                  $typl8-dropcap-bg
+  );
+}
+
+%freja-page-wide-element {
+  background-color: $freja-primary-background-color;
+  margin:           0;
+  margin-bottom:    1em;
+  padding:          #{2*$typl8-font-base}px 0 #{2*$typl8-font-base}px 0;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+%freja-border-bottom-transition {
+  transition:    border-color .5s ease-in-out;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom-color: $typl8-copy-color;
+  }
+}

@@ -12,8 +12,13 @@ $freja-link-types: (
 
 
 @each $type, $file in $freja-link-types {
-  a[href^="#{$type}"] {
-    padding-left: 20px;
-    background: url('../img/icons/#{$file}') no-repeat center left;
+  a[href^="#{$type}"]:before {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    content:          "";
+    background-color: $freja-link-color;
+    -webkit-mask:     url('../img/icons/#{$file}') no-repeat center left;
+    mask:             url('../img/icons/#{$file}') no-repeat center left;
   }
 }

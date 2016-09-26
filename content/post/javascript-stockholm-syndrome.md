@@ -2,7 +2,7 @@
 date = "2016-09-24T10:42:02+02:00"
 draft = true
 title = "Javascript: Fatigue vs. Stockholm syndrome"
-
+tags = ["javascript", "tools", "rants", "state of the world", "wtf", "musings"]
 +++
 
 Programmers are the worst. They will vehemently defend the tool of their choice even though it’s the worst tool in the universe. See any vs in the programming community. Tabs vs. spaces. Emacs vs. vim. C++ vs. PHP. You name it.

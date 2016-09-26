@@ -251,11 +251,11 @@ p + .typl8-drop-cap {
  * Extend this object into your markup.
  *
  */
-article > *, article > blockquote p, pre code, #TableOfContents:before, #TableOfContents ul, #disqus_thread {
+article > *, article > blockquote p, pre code, #disqus_thread, .banner header {
   margin-left: 20%;
   margin-right: 20%; }
   @media screen and (max-width: 768px) {
-    article > *, article > blockquote p, pre code, #TableOfContents:before, #TableOfContents ul, #disqus_thread {
+    article > *, article > blockquote p, pre code, #disqus_thread, .banner header {
       margin-left: 5%;
       margin-right: 5%; } }
 
@@ -270,12 +270,12 @@ article header + p:first-letter, article blockquote > p:first-of-type:first-lett
   background: transparent;
   color: inherit; }
 
-figure.quote, article > blockquote, pre, #TableOfContents {
+figure.quote, article > blockquote, pre, .post-meta, figure.fullimage, .gallery, .banner {
   background-color: #f1edea;
   margin: 0;
   margin-bottom: 1em;
   padding: 36px 0 36px 0; }
-  figure.quote p:last-child, article > blockquote p:last-child, pre p:last-child, #TableOfContents p:last-child {
+  figure.quote p:last-child, article > blockquote p:last-child, pre p:last-child, .post-meta p:last-child, figure.fullimage p:last-child, .gallery p:last-child, .banner p:last-child {
     margin-bottom: 0; }
 
 section.main-nav nav ul li a {
@@ -504,41 +504,86 @@ section.main-nav nav ul li a {
 .highlight .il {
   color: #8cd0d3; }
 
-a[href^="http"] {
-  padding-left: 20px;
-  background: url("../img/icons/link-intact-sm.svg") no-repeat center left; }
+a[href^="http"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/link-intact-sm.svg") no-repeat center left;
+  mask: url("../img/icons/link-intact-sm.svg") no-repeat center left; }
 
-a[href^="https://m.facebook"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-facebook-sm.svg") no-repeat center left; }
+a[href^="https://m.facebook"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-facebook-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-facebook-sm.svg") no-repeat center left; }
 
-a[href^="https://facebook"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-facebook-sm.svg") no-repeat center left; }
+a[href^="https://facebook"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-facebook-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-facebook-sm.svg") no-repeat center left; }
 
-a[href^="https://plus.google"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-google-plus-sm.svg") no-repeat center left; }
+a[href^="https://plus.google"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-google-plus-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-google-plus-sm.svg") no-repeat center left; }
 
-a[href^="https://twitter"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-twitter-sm.svg") no-repeat center left; }
+a[href^="https://twitter"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-twitter-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-twitter-sm.svg") no-repeat center left; }
 
-a[href^="https://github"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-github-sm.svg") no-repeat center left; }
+a[href^="https://github"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-github-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-github-sm.svg") no-repeat center left; }
 
-a[href^="https://instagram"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-instagram-sm.svg") no-repeat center left; }
+a[href^="https://instagram"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-instagram-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-instagram-sm.svg") no-repeat center left; }
 
-a[href^="https://youtu"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-youtube-sm.svg") no-repeat center left; }
+a[href^="https://youtu"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-youtube-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-youtube-sm.svg") no-repeat center left; }
 
-a[href^="https://vimeo"] {
-  padding-left: 20px;
-  background: url("../img/icons/social-vimeo-sm.svg") no-repeat center left; }
+a[href^="https://vimeo"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-vimeo-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-vimeo-sm.svg") no-repeat center left; }
 
 a {
   color: #a3020e; }
@@ -557,6 +602,8 @@ section.main-nav {
     margin-left: 0; }
     section.main-nav figure.logo img {
       height: 5em; }
+    section.main-nav figure.logo a:before {
+      display: none; }
   section.main-nav nav {
     flex-grow: 2; }
     section.main-nav nav ul {
@@ -576,10 +623,15 @@ article header.header-levelh1 {
   article header.header-levelh1 a {
     text-decoration: none;
     color: #222; }
-article p.read-more {
-  text-indent: 0; }
-
-p {
+  article header.header-levelh1 small {
+    display: block;
+    font-size: 30%;
+    margin-top: 1em; }
+article p {
+  margin-bottom: 2em; }
+  article p:last-of-type {
+    margin-bottom: 1em; }
+article:last-of-type {
   margin-bottom: 2em; }
 
 figure.quote {
@@ -625,7 +677,7 @@ article > section {
 pre, code {
   font-family: "Fira Code", monospace; }
 
-p ~ ul, p ~ ol {
+p + ul, p + ol {
   margin-top: -1em; }
 
 div.highlight {
@@ -645,16 +697,125 @@ footer {
     margin-top: 1em;
     margin-bottom: 1em; }
 
-span.read-count {
-  display: block; }
+.post-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em; }
+  .post-post > p {
+    margin: 0; }
+  .post-post span.read-count {
+    display: block; }
 
-#TableOfContents:before {
-  content: 'Table of Contents';
-  line-height: 2em; }
-#TableOfContents li ul, #TableOfContents li ol {
-  margin-left: 0; }
+.post-meta {
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between; }
+  @media screen and (max-width: 768px) {
+    .post-meta {
+      padding-left: 5%;
+      padding-right: 5%; } }
+  .post-meta li ul, .post-meta li ol {
+    margin-left: 0; }
 
-#disqus_thread {
-  margin-top: 2em; }
+.tags {
+  font-size: 55%;
+  text-align: right;
+  line-height: 3em; }
+  .tags a {
+    background: #a3020e;
+    color: #f1edea;
+    text-decoration: none;
+    transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+    opacity: 0.5;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid white;
+    word-break: keep-all;
+    white-space: nowrap;
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none; }
+    .tags a:hover {
+      background: white;
+      color: #a3020e;
+      border: 1px solid #a3020e; }
+
+.meta {
+  max-width: 30%; }
+  .meta p {
+    text-indent: 0; }
+    .meta p.meta-data {
+      padding-left: 18px;
+      text-align: left; }
+
+.word-count {
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+figure.fullimage {
+  padding-top: 0;
+  padding-bottom: 0; }
+  figure.fullimage img {
+    width: 100vw;
+    display: block; }
+  figure.fullimage figcaption {
+    text-align: center;
+    padding: 1em; }
+    figure.fullimage figcaption cite {
+      font-style: normal; }
+
+figure.image {
+  background-color: #f1edea;
+  margin-bottom: 2em; }
+  figure.image img {
+    display: block;
+    width: 100%; }
+  figure.image figcaption {
+    width: 100%;
+    text-align: center;
+    padding: 1em; }
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 0; }
+  @media screen and (max-width: 1000px) {
+    .gallery {
+      flex-direction: column;
+      align-items: center; } }
+  .gallery figure {
+    margin-bottom: 0; }
+    .gallery figure img {
+      display: block;
+      width: 30vw; }
+    .gallery figure figcaption {
+      padding: 1em; }
+
+.banner {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  height: 50vw; }
+  .banner img {
+    width: 100vw;
+    display: block; }
+  .banner header {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0; }
+    .banner header span {
+      line-height: 1.2em;
+      background-color: #f1edea;
+      opacity: 0.9; }
+    .banner header ~ .post-meta {
+      margin-top: 0; }
 
 /*# sourceMappingURL=freja.css.map */

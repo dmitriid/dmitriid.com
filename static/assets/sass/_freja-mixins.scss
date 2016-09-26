@@ -1,0 +1,6 @@
+@mixin freja-no-hyphenate() {
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}

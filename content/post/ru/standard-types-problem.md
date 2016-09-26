@@ -1,8 +1,9 @@
 +++
 date = "2016-09-25T11:25:23+02:00"
 draft = true
-title = "standard types problem"
-
+title = "Обычная банковская задача. Решить статическими типами"
+tags = ["по-русски", "static typing", "problems"]
+banner = "https://c1.staticflickr.com/9/8426/29316998152_07355d7b6b_z.jpg"
 +++
 
 # Задача
@@ -10,6 +11,16 @@ title = "standard types problem"
 Стандартная банковская задача. Предыстория будет отдельным постом. Интересно как можно решить подобную задачу с использованием стат. типизации. Чтобы был контроль компилятором, не надо было полагаться на 100500 тестов, чтобы проверить, что определенные ветки не выполняются и т.п.
 
 Есть модуль X, реализующий API-вызов «изменить сумму заказа».
+
+{{< fullimage src="https://c1.staticflickr.com/9/8426/29316998152_07355d7b6b_z.jpg" author="Joao" description="Hear me roar" link="twitter.com" >}}
+
+{{< gallery >}}
+{{< image src="https://c1.staticflickr.com/9/8426/29316998152_07355d7b6b_z.jpg" author="Joao" description="Hear me roar" link="twitter.com" >}}
+{{< image src="https://c1.staticflickr.com/9/8426/29316998152_07355d7b6b_z.jpg" author="Joao" description="Hear me roar" link="twitter.com" >}}
+{{</ gallery >}}
+
+{{< image src="https://c1.staticflickr.com/9/8426/29316998152_07355d7b6b_z.jpg" author="Joao" description="Hear me roar" link="twitter.com" >}}
+{{< image src="https://c1.staticflickr.com/9/8426/29316998152_07355d7b6b_z.jpg" >}}
 
 Заказ
 

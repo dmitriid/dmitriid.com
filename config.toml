@@ -13,3 +13,6 @@ PygmentsCodeFences = true
   Author = "Dmitrii Dimandt"
   AutogenCardImage = true
   TypeKitID = "ogl7lwm"
+
+[taxonomies]
+tag = "tags"

@@ -79,11 +79,8 @@
     </script>
   {{ end }}
 
-  {{ with .Site.Params.TypeKitID }}
-  <script src="https://use.typekit.net/{{ . }}.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
-  {{ end }}
-  
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i&subset=cyrillic,latin-ext"
+        rel="stylesheet">
   <link rel="stylesheet" href="{{ .Site.BaseURL }}/assets/css/normalize.css?{{ .Now.Unix }}">
   <link rel="stylesheet" href="{{ .Site.BaseURL }}/assets/css/freja.css?{{ .Now.Unix }}">
 
@@ -94,10 +91,9 @@
 </head>
 <body>
 <section role="navigation" class="main-nav">
-  <figure class="logo" role="banner">
-    <img src="{{ .Site.BaseURL }}/assets/img/logo.svg"
+  <figure class="logo" role="banner"><a href="{{ .Site.BaseURL }}" title={{ .Site.Title }}><img src="{{ .Site.BaseURL }}/assets/img/logo.svg"
          alt="{{ .Site.Title}}"
-    />
+    /></a>
   </figure>
   <nav role="navigation">
     <ul>

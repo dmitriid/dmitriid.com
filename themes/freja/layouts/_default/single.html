@@ -3,8 +3,37 @@
 {{ end }}
 {{ define "main" }}
 <article>
-  <header class="header-levelh1">{{ .Title }}</header>
-  {{ .TableOfContents }}
+  {{ if (isset .Params "banner") }}
+    <div class="banner">
+      <img src="{{ .Params.banner }}" alt="{{ .Title }}" />
+      <header class="header-levelh1"><span>{{ .Title }}</span></header>
+    </div>
+  {{ else }}
+    <header class="header-levelh1">{{ .Title }}</header>
+  {{ end }}
+  <div class="post-meta">
+    <div class="table-of-contents">
+      <p>Table of Contents</p>
+      {{ .TableOfContents }}
+      <small class="word-count">{{ .WordCount }} words / {{ .ReadingTime }} minute{{ if gt .ReadingTime 1}}s{{ end }}</small>
+    </div>
+    <div class="meta">
+      <p>Published</p>
+      <p class="meta-data">{{ .Date.Format "2006-01-02" }}</p>
+      {{ if not (eq .Date .Lastmod) }}
+      <p>Modified</p>
+      <p class="meta-data">{{ .LastMod.Format "2006-01-02" }}</p>
+      {{ end }}
+      {{if isset .Params "tags" }}
+      <p>Tags</p>
+      <p class="tags meta-data">
+        {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </p>
+      {{ end }}
+    </div>
+  </div>
   {{ .Content }}
 </article>
 <hr/>

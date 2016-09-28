@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ range .Data.Pages }}
+
+{{ if ( eq .Section "meta" ) }}
+  <article>
+    <header class="header-levelh1">
+      <a href="{{.RelPermalink}}" 
+         title="{{ .Title }}">
+        {{- .Title -}}
+      </a><small>{{ .Date.Format "2006-01-02" }}</small>
+    </header>
+    {{ with .Params.summary | default .Summary | plainify }}
+      <p>{{ . }}</p>
+    {{ end }}
+    <div class="post-post">
+      <p class="read-more">
+        <a href="{{.RelPermalink}}" role="link" title="Read more {{ .Title }}"
+           class="read-more">Read more</a>
+        <span class="read-count">
+        <small class="word-count">
+          {{ .WordCount }} words / {{ .ReadingTime }} minute{{ if gt .ReadingTime 1}}s{{ end }}
+        </small>
+      </span>
+      </p>
+      <p class="tags">
+        {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      </p>
+    </div>
+  </article>
+<hr />
+{{ end }}
+{{ end }}
+{{ end }}

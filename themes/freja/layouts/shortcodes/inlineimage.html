@@ -3,7 +3,7 @@
 {{- $src := .Get "src" -}}
 {{- $link := .Get "link" -}}
 {{- $inner := .Inner -}}
-<figure class="image">
+<figure class="inlineimage">
   <div class="wrapper">
     <img src="{{ $src }}"{{ with $description }} alt="{{ . }}"{{ end }} />
   </div>

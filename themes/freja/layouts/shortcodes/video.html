@@ -1,0 +1,4 @@
+<div class="video">{{- if .Get "youtube" -}}
+  <iframe src="https://www.youtube.com/embed/{{ .Get "youtube" }}"
+        frameborder="0" allowfullscreen></iframe>{{- end -}}
+</div>

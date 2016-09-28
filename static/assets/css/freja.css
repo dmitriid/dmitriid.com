@@ -251,11 +251,11 @@ p + .typl8-drop-cap {
  * Extend this object into your markup.
  *
  */
-article > *, article > blockquote p, pre code, #disqus_thread, .banner header {
+article > *, article > blockquote p, pre code, #disqus_thread, figure.fullimage figcaption, .banner header {
   margin-left: 20%;
   margin-right: 20%; }
   @media screen and (max-width: 768px) {
-    article > *, article > blockquote p, pre code, #disqus_thread, .banner header {
+    article > *, article > blockquote p, pre code, #disqus_thread, figure.fullimage figcaption, .banner header {
       margin-left: 5%;
       margin-right: 5%; } }
 
@@ -270,12 +270,12 @@ article header + p:first-letter, article blockquote > p:first-of-type:first-lett
   background: transparent;
   color: inherit; }
 
-figure.quote, article > blockquote, pre, .post-meta, figure.fullimage, .gallery, .banner {
+article > blockquote, pre, .post-meta, figure.quote, figure.fullimage, .gallery, .banner {
   background-color: #f1edea;
   margin: 0;
   margin-bottom: 1em;
   padding: 36px 0 36px 0; }
-  figure.quote p:last-child, article > blockquote p:last-child, pre p:last-child, .post-meta p:last-child, figure.fullimage p:last-child, .gallery p:last-child, .banner p:last-child {
+  article > blockquote p:last-child, pre p:last-child, .post-meta p:last-child, figure.quote p:last-child, figure.fullimage p:last-child, .gallery p:last-child, .banner p:last-child {
     margin-bottom: 0; }
 
 section.main-nav nav ul li a {
@@ -576,6 +576,15 @@ a[href^="https://youtu"]:before {
   -webkit-mask: url("../img/icons/social-youtube-sm.svg") no-repeat center left;
   mask: url("../img/icons/social-youtube-sm.svg") no-repeat center left; }
 
+a[href^="https://www.youtu"]:before {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  content: "";
+  background-color: #a3020e;
+  -webkit-mask: url("../img/icons/social-youtube-sm.svg") no-repeat center left;
+  mask: url("../img/icons/social-youtube-sm.svg") no-repeat center left; }
+
 a[href^="https://vimeo"]:before {
   display: inline-block;
   height: 18px;
@@ -584,6 +593,9 @@ a[href^="https://vimeo"]:before {
   background-color: #a3020e;
   -webkit-mask: url("../img/icons/social-vimeo-sm.svg") no-repeat center left;
   mask: url("../img/icons/social-vimeo-sm.svg") no-repeat center left; }
+
+main {
+  min-height: 100vh; }
 
 a {
   color: #a3020e; }
@@ -627,26 +639,24 @@ article header.header-levelh1 {
     display: block;
     font-size: 30%;
     margin-top: 1em; }
+article h1 {
+  clear: left; }
+article h2 {
+  clear: left; }
+article h3 {
+  clear: left; }
+article h4 {
+  clear: left; }
+article h5 {
+  clear: left; }
+article h6 {
+  clear: left; }
 article p {
   margin-bottom: 2em; }
   article p:last-of-type {
     margin-bottom: 1em; }
 article:last-of-type {
   margin-bottom: 2em; }
-
-figure.quote {
-  display: flex;
-  flex-direction: row; }
-  figure.quote blockquote {
-    margin: 0 0 0 20%; }
-    figure.quote blockquote p {
-      margin-left: 0; }
-  figure.quote figcaption {
-    min-width: 20%;
-    margin: 0 0 0 2vw; }
-    figure.quote figcaption cite {
-      margin: 0;
-      text-align: left; }
 
 pre {
   background-color: #3f3f3f;
@@ -667,7 +677,7 @@ hr {
   hr:last-child {
     display: none; }
 
-p code {
+p code, li code {
   padding: 0.1em 0.5em;
   background-color: #f1edea; }
 
@@ -745,7 +755,7 @@ footer {
       border: 1px solid #a3020e; }
 
 .meta {
-  max-width: 30%; }
+  min-width: 25%; }
   .meta p {
     text-indent: 0; }
     .meta p.meta-data {
@@ -758,17 +768,34 @@ footer {
   -ms-hyphens: none;
   hyphens: none; }
 
+figure figcaption {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em; }
+  figure figcaption cite {
+    font-style: normal; }
+
+figure.quote {
+  display: flex;
+  flex-direction: row; }
+  figure.quote blockquote {
+    margin: 0 0 0 20%; }
+    figure.quote blockquote p {
+      margin-left: 0; }
+  figure.quote figcaption {
+    min-width: 20%;
+    margin: 0 0 0 2vw;
+    padding-top: 0; }
+    figure.quote figcaption cite {
+      margin: 0;
+      text-align: left; }
+
 figure.fullimage {
   padding-top: 0;
   padding-bottom: 0; }
   figure.fullimage img {
     width: 100vw;
     display: block; }
-  figure.fullimage figcaption {
-    text-align: center;
-    padding: 1em; }
-    figure.fullimage figcaption cite {
-      font-style: normal; }
 
 figure.image {
   background-color: #f1edea;
@@ -777,36 +804,65 @@ figure.image {
     display: block;
     width: 100%; }
   figure.image figcaption {
-    width: 100%;
-    text-align: center;
     padding: 1em; }
+
+figure.inlineimage {
+  background-color: #f1edea;
+  margin: 2em;
+  width: auto;
+  float: left; }
+  figure.inlineimage img {
+    display: inline;
+    width: auto;
+    max-width: 30vw; }
+  figure.inlineimage figcaption {
+    padding: 1em;
+    max-width: 30vw;
+    padding: 0; }
 
 .gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 0; }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     .gallery {
       flex-direction: column;
       align-items: center; } }
-  .gallery figure {
-    margin-bottom: 0; }
-    .gallery figure img {
-      display: block;
+  .gallery .image {
+    margin: 1em; }
+    .gallery .image .wrapper {
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      height: 25vw;
       width: 30vw; }
-    .gallery figure figcaption {
-      padding: 1em; }
+      .gallery .image .wrapper img {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 30vw;
+        min-height: 30vw; }
+    .gallery .image figcaption {
+      width: 25vw; }
 
 .banner {
   position: relative;
   padding: 0;
   overflow: hidden;
   margin-bottom: 0;
-  height: 50vw; }
+  height: 40vw; }
   .banner img {
     width: 100vw;
-    display: block; }
+    min-height: 40vw;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
   .banner header {
     position: absolute;
     bottom: 0;
@@ -817,5 +873,26 @@ figure.image {
       opacity: 0.9; }
     .banner header ~ .post-meta {
       margin-top: 0; }
+
+.video {
+  position: relative;
+  padding-bottom: 36.25%;
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 2em; }
+  .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 2em; }
+  table th, table td {
+    padding: 1em;
+    vertical-align: top;
+    border-bottom: 1px solid #444; }
 
 /*# sourceMappingURL=freja.css.map */

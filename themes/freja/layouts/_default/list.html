@@ -1,10 +1,11 @@
 {{ define "main" }}
 {{ range .Data.Pages }}
 
-{{ if not ( eq .Section "meta" ) }}
+{{ if (and (not ( eq .Section "gen" )) (not ( eq .Section "notes" ))) }}
+
   <article>
     <header class="header-levelh1">
-      <a href="{{.RelPermalink}}" 
+      <a href="{{.RelPermalink}}"
          title="{{ .Title }}">
         {{- .Title -}}
       </a><small>{{ .Date.Format "2006-01-02" }}</small>

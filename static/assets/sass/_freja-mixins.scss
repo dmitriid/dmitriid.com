@@ -1,6 +1,31 @@
 @mixin freja-no-hyphenate() {
-  -moz-hyphens: none;
+  -moz-hyphens:    none;
   -webkit-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
+  -ms-hyphens:     none;
+  hyphens:         none;
+}
+
+@mixin vertical-align($position: relative) {
+  position:          $position;
+  top:               50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  transform:         translateY(-50%);
+}
+
+@mixin horizontal-align($position: relative) {
+  position:          $position;
+  left:              50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform:     translateX(-50%);
+  transform:         translateX(-50%);
+}
+
+@mixin center-align($position: relative) {
+  position:          $position;
+  top:               -50%;
+  left:              -50%;
+  -webkit-transform: translateX(-50%), translateY(-50%);
+  -ms-transform:     translateX(-50%), translateY(-50%);
+  transform:         translateX(-50%), translateY(-50%);
 }

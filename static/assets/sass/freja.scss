@@ -11,6 +11,10 @@
 @import "freja-link-decorators";
 @import "freja-mixins";
 
+main {
+  min-height: 100vh;
+}
+
 a {
   color: $freja-link-color;
 }
@@ -103,6 +107,10 @@ article {
     #{$name} + p {
       @extend %freja-drop-cap;
     }
+
+    #{$name} {
+      clear: left;
+    }
   }
 
   p {
@@ -115,29 +123,6 @@ article {
 
   &:last-of-type {
     margin-bottom: 2em;
-  }
-}
-
-figure.quote {
-  display:        flex;
-  flex-direction: row;
-
-  @extend %freja-page-wide-element;
-
-  blockquote {
-    margin: 0 0 0 20%;
-    p {
-      margin-left: 0;
-    }
-  }
-
-  figcaption {
-    min-width: 20%;
-    margin:    0 0 0 2vw;
-    cite {
-      margin:     0;
-      text-align: left;
-    }
   }
 }
 
@@ -178,7 +163,7 @@ hr {
   }
 }
 
-p code {
+p code, li code {
   padding:          0.1em 0.5em;
   background-color: $freja-primary-background-color;
 }
@@ -292,7 +277,7 @@ footer {
 }
 
 .meta {
-  max-width: 30%;
+  min-width: 25%;
   p {
     text-indent: 0;
 
@@ -311,6 +296,42 @@ footer {
   @include freja-no-hyphenate();
 }
 
+figure {
+  figcaption {
+    text-align:     center;
+    padding-top:    1em;
+    padding-bottom: 1em;
+
+    cite {
+      font-style: normal;
+    }
+  }
+}
+
+figure.quote {
+  display:        flex;
+  flex-direction: row;
+
+  @extend %freja-page-wide-element;
+
+  blockquote {
+    margin: 0 0 0 20%;
+    p {
+      margin-left: 0;
+    }
+  }
+
+  figcaption {
+    min-width:   20%;
+    margin:      0 0 0 2vw;
+    padding-top: 0;
+    cite {
+      margin:     0;
+      text-align: left;
+    }
+  }
+}
+
 figure.fullimage {
   @extend %freja-page-wide-element;
 
@@ -323,30 +344,43 @@ figure.fullimage {
   }
 
   figcaption {
-    text-align: center;
-    padding: 1em;
-
-    cite {
-      font-style: normal;
-    }
+    @extend %freja-center-column;
   }
 }
 
 figure.image {
   background-color: $freja-primary-background-color;
-  margin-bottom: 2em;
+  margin-bottom:    2em;
 
   img {
     display: block;
-    width: 100%;
+    width:   100%;
   }
 
   figcaption {
-    width: 100%;
-
-    text-align: center;
-
+    //width: 100%;
     padding: 1em;
+  }
+}
+
+figure.inlineimage {
+  background-color: $freja-primary-background-color;
+  margin:    2em;
+  width: auto;
+  float: left;
+
+  img {
+    display: inline;
+    //width:   100%;
+    width: auto;
+    max-width: 30vw;
+  }
+
+  figcaption {
+    //width: 100%;
+    padding: 1em;
+    max-width: 30vw;
+    padding: 0;
   }
 }
 
@@ -357,56 +391,97 @@ figure.image {
   justify-content: center;
   flex-wrap:       wrap;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items:    center;
   }
 
-  padding-bottom: 0;
+  padding-bottom:  0;
 
-  figure {
-    margin-bottom: 0;
-    img {
-      display: block;
-      width: 30vw;
+  .image {
+    margin: 1em;
+    .wrapper {
+      position:      relative;
+      padding:       0;
+      overflow:      hidden;
+      margin-bottom: 0;
+
+      height:        25vw;
+      width:         30vw;
+
+      img {
+        @include vertical-align();
+
+        width:      30vw;
+        min-height: 30vw;
+
+      }
     }
+
     figcaption {
-      padding: 1em;
+      width: 25vw;
     }
   }
-
 }
 
 .banner {
   @extend %freja-page-wide-element;
 
-  position: relative;
-  padding: 0;
-  overflow: hidden;
+  position:      relative;
+  padding:       0;
+  overflow:      hidden;
   margin-bottom: 0;
 
-  height: 50vw;
+  height:        40vw;
 
   img {
-    width: 100vw;
-    display: block;
+    width:      100vw;
+    min-height: 40vw;
+
+    @include vertical-align();
   }
 
   header {
     @extend %freja-center-column;
 
-    position: absolute;
-    bottom: 0;
+    position:      absolute;
+    bottom:        0;
     margin-bottom: 0;
 
     span {
-      line-height: 1.2em;
+      line-height:      1.2em;
       background-color: $freja-primary-background-color;
-      opacity: 0.9;
+      opacity:          0.9;
     }
 
     & ~ .post-meta {
       margin-top: 0;
     }
+  }
+}
+
+.video {
+  position:       relative;
+  padding-bottom: 36.25%;
+  padding-top:    25px;
+  height:         0;
+  margin-bottom:  2em;
+
+  iframe {
+    position: absolute;
+    top:      0;
+    left:     0;
+    width:    100%;
+    height:   100%;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 2em;
+  th, td {
+    padding: 1em;
+    vertical-align: top;
+    border-bottom: 1px solid $typl8-copy-color;
   }
 }

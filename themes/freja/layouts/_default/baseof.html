@@ -23,14 +23,9 @@
     <meta name="twitter:title" content="{{ .Title }}" />
     <meta name="twitter:description" content="{{ .Description }}" />
     <meta name="twitter:url" content="{{ .Permalink }}" />
-    {{ if .Site.Params.AutogenCardImage | or (isset .Params "image")}}
-      {{ if (isset .Params "image") }}
-        <meta name="twitter:image" content="{{ .Site.BaseURL }}assets/cards/{{ .Params.image }}.png">
-        <meta property="og:image" content="{{ .Site.BaseURL }}assets/cards/{{ .Params.image }}.png"/>
-      {{ else }}
+    {{ if .Site.Params.AutogenCardImage }}
         <meta name="twitter:image" content="{{ .Site.BaseURL }}assets/cards/{{ first 6 .UniqueID }}/{{ after 6 .UniqueID}}.png">
         <meta property="og:image" content="{{ .Site.BaseURL }}assets/cards/{{ first 6 .UniqueID }}/{{ after 6 .UniqueID}}.png"/>
-      {{ end }}
     {{ end }}
   {{ else }}
     <meta property="og:type" content="website" />
@@ -81,8 +76,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i&subset=cyrillic,latin-ext"
         rel="stylesheet">
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/assets/css/normalize.css?{{ .Now.Unix }}">
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/assets/css/freja.css?{{ .Now.Unix }}">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/css/normalize.css?{{ .Now.Unix }}">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/css/freja.css?{{ .Now.Unix }}">
 
   <title>{{ block "title" . }}
     {{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}
@@ -91,7 +86,7 @@
 </head>
 <body>
 <section role="navigation" class="main-nav">
-  <figure class="logo" role="banner"><a href="{{ .Site.BaseURL }}" title={{ .Site.Title }}><img src="{{ .Site.BaseURL }}/assets/img/logo.svg"
+  <figure class="logo" role="banner"><a href="{{ .Site.BaseURL }}" title={{ .Site.Title }}><img src="{{ .Site.BaseURL }}assets/img/logo.svg"
          alt="{{ .Site.Title}}"
     /></a>
   </figure>

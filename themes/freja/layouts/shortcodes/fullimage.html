@@ -7,7 +7,7 @@
   {{- if $description | or $author -}}
   <figcaption>
     <cite>
-      {{ with $author }}{{ if $link }}<a href="{{ $link }}">{{ end }}{{ . }}{{ if $link }}</a>{{ end }}. {{ end }}{{ with $description }}<em>{{ . }}</em>{{ end }}
+      {{ with $author }}{{ if $link }}<a href="{{ $link }}">{{ end }}{{ . }}{{ if $link }}</a>{{ end }} {{ end }}{{ with $description }}<em>{{ . }}</em>{{ end }}
     </cite>
   </figcaption>
   {{- end -}}

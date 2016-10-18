@@ -44,7 +44,7 @@ The task it runs is called *browserify*
 - Well, the problem with the browserify *task* is that the *task* runner cannot run it. It needs a plugin called *grunt-browserify* to do that
 - Oh, and browserify has to run babel on the source code before it can do anything with it.
 - And the problem is that browserify cannot run babel directly. It needs *babelify* to work
-- 
+
 All in all the whole toolchain to produce a Javascript file is *grunt -> grunt-browserify -> browserify -> babelify -> babel*. And someone in that chain decides that babel missing all of its specified plugins *is not a reason to throw an error, stop and report*.
 
 Unwind. Relax. Breathe. Solve differential equations in your head. Install whatever’s needed for babel. Run grunt.

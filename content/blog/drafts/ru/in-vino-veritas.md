@@ -3,7 +3,7 @@ date = "2016-09-27T08:40:20+02:00"
 draft = true
 title = "In Vino Veritas, или Взгляд дилетанта на вино"
 banner = "https://farm1.staticflickr.com/98/232243912_950205e71e_b_d.jpg"
-tags = ["по-русски", "вино"]
+tags = ["по-русски", "вино", "взгляд дилетанта"]
 
 +++
 

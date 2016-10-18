@@ -64,7 +64,7 @@ There are several types of images:
 Display a single image as a block element with possible description.
 
 ```
-{{</* image src author? description? link? >}text?{ {</ image */>}}
+{{</* image src author? description? link? >}}text?{ {</ image */>}}
 ```
 
 
@@ -221,7 +221,7 @@ Introducing Hugo, a new idea around making website creation simple again. Hugo f
 A responsive video block. Currently only supports youtube
 
 ```
-{{</* video id? */>}}
+{{</* video id */>}}
 ```
 
 param | type |   |description
@@ -283,7 +283,7 @@ print 'I owe the grocer $%.2f' % grocery_bill
 
 # Banner
 
-If the page has `banber = <src>` set in its front matter, it will display the page title like you see on this very page. To replicate the same behaviour elsewhere in text use the banner shortcode:
+If the page has `banner = <src>` set in its front matter, it will display the page title like you see on this very page. To replicate the same behaviour elsewhere in text use the banner shortcode:
 
 ```
 {{</* banner src title */>}}

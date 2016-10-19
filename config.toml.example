@@ -1,6 +1,6 @@
-baseurl = "http://dmitriid.com/"
+baseurl = "http://url.com/"
 languageCode = "en-us"
-title = "A Place Where Even Mammoths Fly"
+title = "A witty title"
 
 ignoreFiles = ["\\.scss"]
 
@@ -10,9 +10,11 @@ pygmentsUseClasses =         true
 PygmentsCodeFences = true
 
 [Params]
-  Author = "Dmitrii Dimandt"
+  Author = "Author name"
   AutogenCardImage = true
-  TypeKitID = "ogl7lwm"
+  TypeKitID = ""
+  twitter = "twitterhandle"
+  analytics = "analytics"
 
 [taxonomies]
 tag = "tags"

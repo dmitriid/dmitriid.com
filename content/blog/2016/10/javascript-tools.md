@@ -1,5 +1,6 @@
 +++
 date = "2016-10-19T13:38:57+02:00"
+Lastmod = "2016-11-16T13:38:57+02:00"
 draft = false
 title = "Javascript Tools: A Story in Disgrace"
 summary = "We're told: move fast and break things. For once, just for once, I would like to stop breaking things and stick to something that works."
@@ -494,7 +495,7 @@ Provided the following invalid option to the compiler in the `tsconfig`:
 
 The config above was accepted, and silently ignored. Everything got compiled. Was the config file even picked up? Well, webpack didn't fail, so probably it was (see Part I). Who ignored the error? TS compiler? awesome-config-loader? No one knows, and it is impossible to find out.
 
-## Third-party modules, do you speak it?
+## Third-party modules, do you speak it? (upd. 2016-11-16)
 
 Sooner or later you will have to import modules written in or transpiled to Javascript. Unless you develop a library with no external dependencies (quite possible) or something that only depends on other libraries written in Typescript (highly unlikely).
 
@@ -521,6 +522,8 @@ You will ask however, "Is that it?". Yes, that is *it*.
 - Typescript knows where the module resides, because it knows how to import stuff from `node_modules`
 - Typescript does not need a single type definition to work with such a module
 - *Obviously, it will not import such a module unless you provide it with a usless unnecessary stub it could've generated automatically*.
+
+**Edit (Nov 16):** This will finally be fixed in [TypeScript 2.1.3](https://github.com/Microsoft/TypeScript/issues/11106#issuecomment-261012601)
 
 Because reasons. Go ahead and try to make sense of the [ambient modules](https://www.typescriptlang.org/docs/handbook/modules.html#working-with-other-javascript-libraries) section in the docs.
 

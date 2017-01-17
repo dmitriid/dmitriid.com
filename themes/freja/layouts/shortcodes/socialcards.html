@@ -1,4 +1,5 @@
 {{ range .Site.Pages }}
+{{ if .UniqueID }}
 [{{.UniqueID}}]
 
 title = {{ .Title | plainify | jsonify }}
@@ -11,4 +12,5 @@ image = "{{ .Params.banner }}"
 
 out = {{ first 6 .UniqueID }}/{{ after 6 .UniqueID}}.png
 
+{{ end }}
 {{ end }}

@@ -1,6 +1,6 @@
 +++
 date = "2016-10-19T13:38:57+02:00"
-Lastmod = "2016-11-16T13:38:57+02:00"
+Lastmod = "2016-12-27T13:38:57+02:00"
 draft = false
 title = "Javascript Tools: A Story in Disgrace"
 summary = "We're told: move fast and break things. For once, just for once, I would like to stop breaking things and stick to something that works."
@@ -155,6 +155,51 @@ More detail: the "fs" package is a non-functional package. It simply logs the wo
 1. Should you even allow publishing a module that has the same name as an intenal one?
 2. If `npmjs` is confusing, how is `fs` *not* confusing?
 3. If thousands of packages depend on it, how can you remove it considering the SNAFU you had just several months prior?
+
+## npm devs are clueless? (added 2016-12-27)
+
+Event though npm is a rather nice package manager, its devs often behave like they haven't got a clue as to what's happening, or how development should happen.
+
+### Performance drop by 40% or more
+
+At one point `npm` implemented a new progress bar which slowed down installation speeds by 40% and more. See [related issue](https://github.com/npm/npm/issues/11283). Worse still, it was now enabled by default (disabled by default in the previous version).
+
+You've got to love some comments from the npm dev team:
+
+{{% quote %}}
+I've been aware of this as an issue for a while and the fix was literally 10 minutes or so of effort, but it hadn't bubbled up in priority as I hadn't realized how big an impact it was having.
+{{%/ quote %}}
+
+Or, in a [related issue](https://github.com/npm/npm/issues/8826#issuecomment-155762361) (this appeared _after_ the release):
+
+{{% quote %}}
+Profiling would be grand... Put together a minimal benchmark to work against... Ideally I'd like this benchmark to be 2.x and 3.x compatible so we can directly compare different parts.
+{{%/ quote %}}
+
+### We break your stable branch, we're not going to fix it
+
+Look at [this issue](https://github.com/npm/npm/issues/14042). Here's the problem:
+
+- `npm shrinkwrap` works on `3.10.7`
+- It crashes on `3.10.8`
+- Because the npm devs introduced _a regression_ in a _patch release_
+- The devs _would not fix the regression_ because _this is a stable branch, and only critical and security fixes go into it_
+
+I leave this with no comments
+
+### Semantic versioning all the way! Not!
+
+NPM swears by [semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning). The CLI will even warn you if your packages do not conform to the SemVer.
+
+Meanwhile, npm project itself couldn't care less about semantic versioning.
+
+You may wish to check any of the changelogs for any release, including patch releases (for example, [4.0.2](https://github.com/npm/npm/blob/4639b0eed8db92c8872011d4affd10c498b3b9db/CHANGELOG.md)). 
+
+- New features in patch releases? Check
+- Breaking changes in patch releases? Check
+- Breaking changes in minor releases? Check
+
+And this really leads to the following question:
 
 ## Can we even trust our core tools?
 
@@ -368,6 +413,12 @@ This is, unsurprisingly, not entirely correct. See, if you ever decide to create
 - `watch` expects a first parameter with options that are already there in the `config`, really
 
 Because, I guess, reasons. And, surprisingly, the "short" version with `webpack(config, callback)` works as expected. Who'd a thunk it.
+
+## Forget continuous builds (added 2016-12-27)
+
+Just read through [this issue](https://github.com/webpack/webpack/issues/708). Tl;dr: if webpack fails, it exits with a status code of `0`. Because reasons.
+
+And yes, despite this being a majot bug in the main version currenlty used, it _has not been fixed in the two years since it was reported_. Because reasons.
 
 
 # Nothing works out of the box anymore

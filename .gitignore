@@ -9,3 +9,5 @@ public
 
 *.pyc
 *.map
+
+config.toml

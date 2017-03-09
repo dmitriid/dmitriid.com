@@ -1,0 +1,11 @@
+<figure class="quote">
+  <blockquote cite="">
+    {{ .Inner }}
+  </blockquote>
+
+  <figcaption>
+    <cite>
+      <small>{{ with .Get "link" }}<a href="{{ . }}">{{ end }}{{ with .Get "author" }}{{ . }}{{ end }}{{ with .Get "link" }}</a>{{ end }}</small>
+    </cite>
+  </figcaption>
+</figure>

@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "Running in $DIR"
 
 echo "::: Building site" && \
-hugo --theme=freja -v && \
+~/.go/bin/hugo --theme=freja -v && \
 echo "::: Site built" && \
 echo "::: Remove old social cards" && \
 rm -rf $DIR/public/assets/img/cards && \

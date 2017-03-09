@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{.Site.LanguageCode}}">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  {{ .Hugo.Generator }}
+
+  <meta property="og:title" content="{{ if ne .URL "/" }} {{ .Title }} | {{ end }} {{ .Site.Title }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+
+  {{ if .IsPage }}
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" />
+    {{ range .Params.tags }}<meta property="og:article:tag" content="{{ . }}" />
+    {{ end }}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    {{ with .Site.Params.twitter }}
+      <meta name="twitter:site" content="@{{ . }}" />
+      <meta name="twitter:creator" content="@{{ . }}" />
+    {{ end }}
+    <meta name="twitter:title" content="{{ .Title }}" />
+    <meta name="twitter:url" content="{{ .Permalink }}" />
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}assets/img/cards/{{ first 6 .UniqueID }}/{{ after 6 .UniqueID}}.png">
+    <meta name="twitter:image:alt" content="{{ .Title }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}assets/img/cards/{{ first 6 .UniqueID }}/{{ after 6 .UniqueID}}.png"/>
+  {{ else }}
+    <meta property="og:type" content="website" />
+  {{ end }}
+
+  {{ if .Params.summary }}
+    <meta name="description" content="{{ .Params.summary }}" />
+    <meta property="og:description" content="{{ .Params.summary }}" />
+    <meta name="twitter:description" content="{{ .Params.summary }}" />
+  {{ else }}
+    <meta name="description" content="{{ .Site.Params.description }}" />
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    <meta name="twitter:description" content="{{ .Description }}" />
+  {{ end }}
+
+  {{ if ne .URL "/" }}
+    <link href="{{ .Site.BaseURL }}index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ end }}
+
+  {{if .IsNode}}
+    <link href="{{.RSSLink}}" rel="alternate" type="application/rss+xml" title="{{ if ne .URL "/" }}{{ .Title }} | {{ end }}{{ .Site.Title }}" />
+  {{end}}
+    <link rel="canonical" href="{{ .Permalink }}" />
+  
+  {{ if .IsPage }}{{ with .Site.Params.gplus }} 
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "{{ .Title }}",
+        "author": {
+            "@type": "Person",
+            "name": "http://profiles.google.com/{{ .Site.Params.gplus }}?rel=author"
+        },
+        "datePublished": "{{ .Date.Format "2006-01-02" }}",
+        "description": "{{ .Description }}",
+        "wordCount": {{ .WordCount }}
+    }
+
+    </script>
+  {{ end }}{{ end }}
+
+  {{ $doc := . }}
+  {{ with .Site.Params.disqus }}
+    <script type="text/javascript">
+      var disqus_shortname = '{{ . }}';
+      var disqus_identifier = '{{if isset $doc.Params "disqus_identifier" }}{{ index $doc.Params "disqus_identifier" }}{{ else }}{{ $doc.Permalink }}{{end}}';
+      var disqus_title = '{{if isset $doc.Params "disqus_title" }}{{ index $doc.Params "disqus_title" }}{{ else }}{{ $doc.Title }}{{end}}';
+      var disqus_url = '{{if isset $doc.Params "disqus_url" }}{{ index $doc.Params "disqus_url" | html  }}{{ else }}{{ $doc.Permalink }}{{end}}';
+    </script>
+  {{ end }}
+
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i&subset=cyrillic,latin-ext"
+        rel="stylesheet">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/css/normalize.css?{{ .Now.Unix }}">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/css/freja.css?{{ .Now.Unix }}">
+
+  <title>{{ block "title" . }}
+    {{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}
+    {{ end }}</title>
+  
+</head>
+<body>
+<section role="navigation" class="main-nav">
+  <figure class="logo" role="banner"><a href="{{ .Site.BaseURL }}" title={{ .Site.Title }}><img src="{{ .Site.BaseURL }}assets/img/logo.svg"
+         alt="{{ .Site.Title}}"
+    /></a>
+  </figure>
+  <nav role="navigation">
+    <ul>
+      <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+      <li><a href="https://github.com/dmitriid">GitHub</a></li>
+      <li><a href="http://old.dmitriid.com/">Old site</a></li>
+    </ul>
+  </nav>
+</section>
+<main>
+  {{ block "main" . }}
+  {{ end }}
+</main>
+<footer>
+  <p>
+    Copyright © 2016 Dmitrii Dimandt
+  </p>
+</footer>
+<script>
+  (function(i, s, o, g, r, a, m){
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function(){
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src   = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', {{ .Site.Params.analytics }}, 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

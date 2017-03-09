@@ -1,0 +1,18 @@
+{{- $author := .Get "author" -}}
+{{- $description := .Get "description" -}}
+{{- $src := .Get "src" -}}
+{{- $link := .Get "link" -}}
+{{- $inner := .Inner -}}
+<figure class="image">
+  <div class="wrapper">
+    <img src="{{ $src }}"{{ with $description }} alt="{{ . }}"{{ end }} />
+  </div>
+  {{- if $description | or $author | or (gt (len $inner) 0) -}}
+  <figcaption>
+    <cite>
+      {{ with $author }}{{ if $link }}<a href="{{ $link }}">{{ end }}{{ . }}{{ if $link }}</a>{{ end }} {{ end }}{{ with $description }}<em>{{ . }}</em>{{ end }}
+      {{ if gt (len .Inner) 0 }}{{ if $description | or $author }}<br />{{ end }}{{ .Inner }}{{ end }}
+    </cite>
+  </figcaption>
+  {{- end -}}
+</figure>

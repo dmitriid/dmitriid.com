@@ -1,0 +1,16 @@
+{{ range .Site.Pages }}
+{{ if .UniqueID }}
+[{{.UniqueID}}]
+
+title = {{ .Title | plainify | jsonify }}
+
+{{ if (isset .Params "banner") }}
+image = "{{ .Params.banner }}"
+{{ end }}
+
+{{ if (isset .Params "summary") }}summary = {{ .Params.summary | plainify | jsonify}}{{ end }}
+
+out = {{ first 6 .UniqueID }}/{{ after 6 .UniqueID}}.png
+
+{{ end }}
+{{ end }}

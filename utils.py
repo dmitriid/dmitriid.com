@@ -3,12 +3,14 @@
 ##   python utils.py --images=<path to public/gen/social/index.html>
 
 
-from PIL import Image, ImageDraw, ImageFont
-
-import os, sys, getopt
 import ConfigParser
-import urllib2
+import getopt
 import io
+import os
+import sys
+import urllib2
+
+from PIL import Image, ImageDraw, ImageFont
 
 
 # https://gist.github.com/turicas/1455973
@@ -174,7 +176,7 @@ if __name__ == "__main__":
 
             if config.has_option(section, 'summary'):
                 text = config.get(section, 'summary')
-                if text[0] == "\"":
+                if text and text[0] == "\"":
                     text = text[1:-1]
 
             out = config.get(section, 'out')

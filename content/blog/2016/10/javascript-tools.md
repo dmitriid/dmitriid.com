@@ -4,7 +4,7 @@ Lastmod = "2016-12-27T13:38:57+02:00"
 draft = false
 title = "Javascript Tools: A Story in Disgrace"
 summary = "We're told: move fast and break things. For once, just for once, I would like to stop breaking things and stick to something that works."
-tags = ["javascript", "dx"]
+tags = ["javascript", "dx", "web"]
 +++
 
 # Why am I even writing about this?

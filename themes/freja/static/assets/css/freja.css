@@ -259,17 +259,6 @@ article > *, article > blockquote p, pre code, #disqus_thread, figure.fullimage 
       margin-left: 5%;
       margin-right: 5%; } }
 
-article header + p:first-letter, article blockquote > p:first-of-type:first-letter, article h1 + p:first-letter, article h2 + p:first-letter, article h3 + p:first-letter, article h4 + p:first-letter, article h5 + p:first-letter, article h6 + p:first-letter {
-  float: left;
-  margin: 0;
-  padding: 0.15em 0 0 0;
-  font-size: 1.5em;
-  font-family: inherit;
-  line-height: 0.7;
-  text-indent: 0;
-  background: transparent;
-  color: inherit; }
-
 article > blockquote, pre, .post-meta, figure.quote, figure.fullimage, .gallery, .banner, svg.fullwidth {
   background-color: #f1edea;
   margin: 0;

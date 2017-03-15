@@ -99,14 +99,14 @@ article {
     }
   }
 
-  header + p, blockquote > p:first-of-type {
-    @extend %freja-drop-cap;
-  }
+  //header + p, blockquote > p:first-of-type {
+  //  @extend %freja-drop-cap;
+  //}
 
   @each $name, $_ in $typl8-headings {
-    #{$name} + p {
-      @extend %freja-drop-cap;
-    }
+    //#{$name} + p {
+    //  @extend %freja-drop-cap;
+    //}
 
     #{$name} {
       clear: left;

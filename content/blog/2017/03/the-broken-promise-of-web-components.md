@@ -1,13 +1,16 @@
 +++
-date = "2017-03-14T23:57:58+01:00"
+date = "2017-03-14T23:57:58+02:00"
+Lastmod = "2017-03-16T09:52:00+02:00"
 draft = false
-title = "The broken promise of web components"
+title = "The broken promise of Web Components"
 summary = "Web Components are the promise of a bright new future, aren't they?"
 banner = "https://farm6.staticflickr.com/5592/29946893014_d6fbdbe1ff_k_d.jpg"
 tags = ["javascript", "dx", "web"]
 +++
 
 Disclaimer: I talk a lot about React here, but you can substitute your favorite library: Inferno, Preact, Vue, snabbdom, virtual-dom (or non-js libraries and frameworks like Elm, Om, etc.). Similarly, replace Polymer with Vaadin, or X-Tag, or...
+
+_Also, read Rob Dodson's excellent response to this article: [https://robdodson.me/regarding-the-broken-promise-of-web-components/](https://robdodson.me/regarding-the-broken-promise-of-web-components/)_
 
 # Brief, incomplete, and mostly incorrect history of Web Components
 
@@ -26,7 +29,7 @@ And you were limited to the same set of HTML elements as ever: `div`s, `p`s, `fo
 In 2011 Alex Russel proposed [a vision of the future](https://fronteers.nl/congres/2011/sessions/web-components-and-model-driven-views-alex-russell) (emphasis mine):
 
 {{% quote %}}
-I think we're stuck today in a little bit of a rut of extensibility. We wind up leaning on JavaScript to get things, because it is the Turning complete language in our environment. It is the only thing that can give us an answer when CSS and HTML fail us. So we wind up piling ourselves into the JavaScript boat. We keep piling into the JavaScript boat.
+I think we're stuck today in a little bit of a rut of extensibility. We wind up leaning on JavaScript to get things, because it is the Turing complete language in our environment. It is the only thing that can give us an answer when CSS and HTML fail us. So we wind up piling ourselves into the JavaScript boat. We keep piling into the JavaScript boat.
 
 Bruce yesterday brought up the great example of an empty body tag, and sort of this pathological case of piling yourself into the JavaScript boat, where you wind up then having to go recreate all of the stuff that the browser was going to do more or less for you if you'd sent markup down the wire in order to get back to the same value that was going to be provided to you if you'd done it in markup. But you did it for a good reason. Gmail has an empty body tag, not because it's stupid. Gmail does that because that's how you can actually deliver the functionality of Gmail in a way that's both meaningful and reliable and maintainable. You wind up putting all of your bets, all of your eggs, into the JavaScript basket.
  
@@ -53,7 +56,7 @@ And then he goes on to introduce and demo Web Components, which  at the time wer
 
 But then [W3C](https://www.w3.org) happened. In true w3c fashion it went ahead and spent another 5 years defining the Platonic ideal and never feeding the progress as a result.
 
-## Queue in Facebook
+## Cue in Facebook
 
 Facebook application is complex. It might not look like it, but it is. Those little boxes everywhere on the page have surprisingly complex layouts _which have to be repeated, and/or customized, and/or adjusted_ in various contexts. A developer would naturally want to do the following: take this `box` element, and put it _here_, and apply these random styles to it without disturbing anything on the page.
 
@@ -68,9 +71,9 @@ React provides you with following:
 - a way to define your own custom elements
 - place them on the page with HTML-like syntax
 - provides a fast virtual DOM implementation that minimizes changes to the actual DOM
-- has very few limitations on what you can do with or within components because it's Javascript all the way down (the DSL is a thing wrapper on top of a small number of functions)
+- has very few limitations on what you can do with or within components because it's Javascript all the way down (the DSL is a thin wrapper on top of a small number of functions)
 
-No wonder React took the world by storm. Those who weren't writing it were surely talking about it. It spawned several competitiors that were aiming for the same feature set ([Inferno](https://infernojs.org), [Preact](https://preactjs.com)) or various subsets, most notably Virtual DOM ([Snabbdom](https://github.com/snabbdom/snabbdom), [virtual-dom](https://github.com/Matt-Esch/virtual-dom) etc.).
+No wonder React took the world by storm. Those who weren't writing it were surely talking about it. It spawned several competitiors that are aiming for the same feature set ([Inferno](https://infernojs.org), [Preact](https://preactjs.com)) or various subsets, most notably Virtual DOM ([Snabbdom](https://github.com/snabbdom/snabbdom), [virtual-dom](https://github.com/Matt-Esch/virtual-dom) etc.).
 
 ## 2017
 
@@ -184,7 +187,7 @@ _Ad infinitum_.
 
 ## Let's break compatibility
 
-I assume this was the immediate problem that Polymer faced. How do you work around this? Well, you invent your own not-really-JavaScript-but-kinda-Javascript kinda-templating-kinda-scripting kinda-language. That can only exist in strings.
+I assume the limitations described above were the immediate problem that Polymer faced. How do you work around this? Well, you invent your own not-really-JavaScript-but-kinda-Javascript kinda-templating-kinda-scripting kinda-language. That can only exist in strings.
 
 Work your way through Polymer's [data system](https://www.polymer-project.org/2.0/docs/devguide/data-system) for a full overview. Below are just some examples.
 
@@ -237,7 +240,7 @@ In all seriousness though. Web Components ended up delivering hardly anything fr
 - Their specs depend on JavaScript to work:
   - Custom Elements are a part of [scripting](https://html.spec.whatwg.org/multipage/scripting.html#custom-elements)
   - HTML Templates exist only to be [manipulated by scripts](https://html.spec.whatwg.org/multipage/scripting.html#the-template-element)
-  - I don't even know is [Shadow DOM](https://www.w3.org/TR/shadow-dom/) can be used without JavaScript
+  - I don't even know if [Shadow DOM](https://www.w3.org/TR/shadow-dom/) can be used without JavaScript
   - And only [HTML imports](http://w3c.github.io/webcomponents/spec/imports/) don't need JavaScript
 - They are DOM. So:
 	- [attributes](https://html.spec.whatwg.org/#attributes) are strings
@@ -245,7 +248,7 @@ In all seriousness though. Web Components ended up delivering hardly anything fr
 - To work around limitations (such as string attributes) libraries will (and have) come up with incompatible ways to pass data
 	- is Polymer's `attr$='{{user.name}}'` better than Vaadin's `item-label-path="name.first"` or Angular's `<div *ngFor="let hero of heroes">{{hero.name}}</div>` or more compatible with others?
 	- What, where, and how should I import the entirety of a library X to deal with their weird ways of dealing with DOM limitations if I deal with multiple nested components?
-	- DOM APIs are horrible, cumbersome, awkward and clunky. Polymer and others are bravely trying to use DOM APIs only, but even they resort to `innerHTML` anywhere they don't have to put on a show (tests, for example). When Web Components take root, the web will be flooded with less performant `innerHTML`s and possibly re-implementations of snabbdoms and virtual-doms (obviously incompatible)
+	- DOM APIs are horrible, cumbersome, awkward and clunky. Polymer and others are bravely trying to use DOM APIs only, but even they resort to `innerHTML` anywhere they don't have to put on a show ([tests](https://github.com/Polymer/polymer/search?utf8=✓&q=innerHTML), for example). When Web Components take root, the web will be flooded with less performant `innerHTML`s and possibly re-implementations of snabbdoms and virtual-doms (obviously incompatible)
 	- how will this help with interoperability and vendor lock-ins if everyone will chose their own ways of dealing with this?
 - Scoped CSS...
   - CSS Modules. Need I say more?
@@ -271,6 +274,8 @@ Web Components are more of the same regular DOM API. What I like to think of it 
 There are very very few discussions about these issues except for comments on Twitter or on [various articles](http://www.2ality.com/2015/08/web-component-status.html). The consensus seems to be "Web Components is the glorious interoparable fast performant future".
 
 Is it?
+
+_Rob Dodson posted excellent response to this article: [https://robdodson.me/regarding-the-broken-promise-of-web-components/](https://robdodson.me/regarding-the-broken-promise-of-web-components/). I highly recommend it._
 
 # Credits
 
